@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Untuk Ria Safira ❤️</title>
 
   <style>
@@ -85,7 +84,8 @@
       max-width: 600px;
     }
 
-    .open-button {
+    .open-button,
+    .surprise-button {
       border: none;
       background: #a64d6d;
       color: white;
@@ -100,9 +100,19 @@
       transition: .3s;
     }
 
-    .open-button:hover {
+    .open-button:hover,
+    .surprise-button:hover {
       transform: translateY(-3px);
       background: #8f405d;
+    }
+
+
+    /* =========================
+       MUSIC
+    ========================= */
+
+    audio {
+      display: none;
     }
 
 
@@ -374,38 +384,227 @@
 
 
     /* =========================
+       BUKET BUNGA
+    ========================= */
+
+    .bouquet-section {
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #ffffff,
+          #fff1f5
+        );
+    }
+
+    .bouquet {
+      position: relative;
+
+      width: 330px;
+      height: 390px;
+
+      margin: 30px auto 25px;
+    }
+
+    .flowers {
+      position: absolute;
+
+      top: 15px;
+      left: 0;
+
+      width: 100%;
+      height: 210px;
+
+      z-index: 3;
+    }
+
+    .flower {
+      position: absolute;
+
+      font-size: 60px;
+
+      filter:
+        drop-shadow(
+          0 8px 10px
+          rgba(120, 50, 70, .15)
+        );
+
+      animation:
+        bungaGoyang 3s ease-in-out infinite;
+    }
+
+    .flower1 {
+      left: 35px;
+      top: 80px;
+      transform: rotate(-18deg);
+    }
+
+    .flower2 {
+      left: 100px;
+      top: 25px;
+      font-size: 65px;
+      animation-delay: .3s;
+    }
+
+    .flower3 {
+      left: 165px;
+      top: 65px;
+      transform: rotate(15deg);
+      animation-delay: .6s;
+    }
+
+    .flower4 {
+      left: 215px;
+      top: 20px;
+      font-size: 58px;
+      animation-delay: .9s;
+    }
+
+    .flower5 {
+      left: 75px;
+      top: 115px;
+      font-size: 53px;
+      animation-delay: 1.2s;
+    }
+
+    .flower6 {
+      left: 145px;
+      top: 115px;
+      font-size: 53px;
+      animation-delay: 1.5s;
+    }
+
+    .flower7 {
+      left: 15px;
+      top: 30px;
+      font-size: 52px;
+      animation-delay: 1.8s;
+    }
+
+    .leaves {
+      position: absolute;
+
+      top: 155px;
+      left: 20px;
+
+      width: 290px;
+
+      font-size: 70px;
+
+      letter-spacing: -20px;
+
+      color: #6c9b72;
+
+      z-index: 2;
+
+      transform: rotate(-3deg);
+    }
+
+    .wrapper {
+      position: absolute;
+
+      bottom: 0;
+      left: 50%;
+
+      transform:
+        translateX(-50%)
+        rotate(1deg);
+
+      width: 270px;
+      height: 245px;
+
+      background:
+        linear-gradient(
+          125deg,
+          #f6cbd9,
+          #fff0f4 48%,
+          #edb7ca
+        );
+
+      clip-path:
+        polygon(
+          8% 0,
+          92% 0,
+          100% 100%,
+          0 100%
+        );
+
+      z-index: 4;
+
+      box-shadow:
+        0 20px 40px
+        rgba(100, 50, 70, .15);
+    }
+
+    .wrapper::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 2px;
+      height: 100%;
+
+      background:
+        rgba(255,255,255,.7);
+    }
+
+    .ribbon {
+      position: absolute;
+
+      bottom: 20px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 55px;
+      height: 55px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: #a64d6d;
+
+      color: white;
+
+      font-size: 25px;
+
+      box-shadow:
+        0 8px 20px
+        rgba(100, 40, 60, .2);
+
+      z-index: 5;
+    }
+
+    .bouquet-text {
+      max-width: 600px;
+
+      margin: 20px auto 0;
+
+      font-family: Georgia, serif;
+
+      font-size: 22px;
+
+      line-height: 1.6;
+
+      color: #8e5267;
+    }
+
+
+    /* =========================
        SURPRISE
     ========================= */
 
     .surprise {
       text-align: center;
-    }
-
-    .surprise-button {
-      background: #a64d6d;
-
-      color: white;
-
-      border: none;
-
-      border-radius: 50px;
-
-      padding: 17px 30px;
-
-      font-size: 14px;
-
-      cursor: pointer;
-
-      box-shadow:
-        0 10px 30px rgba(166, 77, 109, .25);
-
-      transition: .3s;
-    }
-
-    .surprise-button:hover {
-      transform: translateY(-3px);
-
-      background: #8f405d;
     }
 
     #secret {
@@ -445,7 +644,7 @@
 
 
     /* =========================
-       FLOATING HEART
+       HEART
     ========================= */
 
     .heart {
@@ -457,12 +656,13 @@
 
       pointer-events: none;
 
-      animation: naik 4s linear forwards;
+      animation:
+        naik 4s linear forwards;
     }
 
 
     /* =========================
-       ANIMATION
+       ANIMATIONS
     ========================= */
 
     @keyframes fadeUp {
@@ -501,16 +701,31 @@
 
     }
 
+    @keyframes bungaGoyang {
+
+      0%, 100% {
+        transform:
+          rotate(-3deg)
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          rotate(4deg)
+          translateY(-6px);
+      }
+
+    }
+
 
     /* =========================
        MOBILE
     ========================= */
 
-    @media(max-width: 650px) {
+    @media(max-width:650px) {
 
       .letter {
         padding: 28px;
-
         font-size: 19px;
       }
 
@@ -524,6 +739,12 @@
 
       section {
         padding: 75px 16px;
+      }
+
+      .bouquet {
+        transform: scale(.85);
+        margin-top: 0;
+        margin-bottom: -25px;
       }
 
     }
@@ -548,7 +769,7 @@
       </div>
 
       <div class="opening-title">
-          Safira.
+        Safira.
       </div>
 
       <div class="opening-text">
@@ -571,20 +792,17 @@
 
   <!-- ===================================
        MUSIC
-
-       Upload lagu ke:
-
+       
+       PASTIKAN FILE ADA DI:
+       
        music/music.mp3
-
   ==================================== -->
 
   <audio id="music" loop>
-
     <source
       src="music.mp3"
       type="audio/mpeg"
     >
-
   </audio>
 
 
@@ -626,7 +844,7 @@
 
 
   <!-- ===================================
-       LETTER
+       SURAT
   ==================================== -->
 
   <section>
@@ -749,7 +967,7 @@
 
 
   <!-- ===================================
-       FOTO KALIAN
+       FOTO
   ==================================== -->
 
   <section>
@@ -901,7 +1119,87 @@
 
 
   <!-- ===================================
-       LAST SURPRISE
+       BUKET BUNGA
+  ==================================== -->
+
+  <section class="bouquet-section">
+
+    <div class="container">
+
+      <div class="label">
+        For you, Baby
+      </div>
+
+      <h2>
+        Bunga kecil buat lo. 🌷
+      </h2>
+
+      <div class="bouquet">
+
+        <div class="flowers">
+
+          <div class="flower flower1">
+            🌷
+          </div>
+
+          <div class="flower flower2">
+            🌸
+          </div>
+
+          <div class="flower flower3">
+            🌷
+          </div>
+
+          <div class="flower flower4">
+            🌸
+          </div>
+
+          <div class="flower flower5">
+            🌷
+          </div>
+
+          <div class="flower flower6">
+            🌸
+          </div>
+
+          <div class="flower flower7">
+            🌷
+          </div>
+
+        </div>
+
+
+        <div class="leaves">
+          🌿 🌿 🌿
+        </div>
+
+
+        <div class="wrapper">
+
+          <div class="ribbon">
+            ♡
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <p class="bouquet-text">
+
+        Kalau bunga asli mungkin suatu hari
+        akan layu, tapi rasa sayang gue ke lo
+        semoga nggak pernah. ❤️
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================
+       PESAN TERAKHIR
   ==================================== -->
 
   <section class="surprise">
@@ -927,7 +1225,7 @@
       <div id="secret">
 
         <p>
-          Baby Safira,
+          Sayang,
         </p>
 
         <p>
@@ -971,9 +1269,7 @@
   ==================================== -->
 
   <footer>
-
     Made with love, specifically for Safira. ♡
-
   </footer>
 
 
@@ -1003,7 +1299,7 @@
       music.play().catch(function(error) {
 
         console.log(
-          "Browser tidak mengizinkan autoplay:",
+          "Musik gagal dimainkan:",
           error
         );
 
@@ -1028,10 +1324,10 @@
 
 
       /*
-        BANYAK HATI
+        EFEK HATI
       */
 
-      buatHati(40);
+      buatHati(45);
 
 
       /*
