@@ -13,63 +13,180 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: #fff5f8;
       color: #4b3039;
       font-family: Arial, sans-serif;
+      overflow-x: hidden;
     }
 
-    .hero {
-      min-height: 100vh;
+    /* =========================
+       OPENING
+    ========================= */
+
+    #opening {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
+      text-align: center;
+      padding: 25px;
+
+      background:
+        radial-gradient(circle at 20% 20%, #ffffff, transparent 25%),
+        radial-gradient(circle at 80% 80%, #f4c6d6, transparent 30%),
+        linear-gradient(135deg, #fff7fa, #f7d5e1);
+
+      transition:
+        opacity 1s ease,
+        visibility 1s ease;
+    }
+
+    #opening.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .opening-content {
+      max-width: 700px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    .opening-small {
+      color: #a64d6d;
+      letter-spacing: 4px;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .opening-title {
+      font-family: Georgia, serif;
+      color: #a64d6d;
+      font-size: clamp(70px, 14vw, 130px);
+      font-weight: normal;
+      line-height: .85;
+    }
+
+    .opening-text {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      line-height: 1.5;
+      margin: 30px auto;
+      max-width: 600px;
+    }
+
+    .open-button {
+      border: none;
+      background: #a64d6d;
+      color: white;
+      padding: 17px 32px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 14px;
+
+      box-shadow:
+        0 15px 35px rgba(166, 77, 109, .3);
+
+      transition: .3s;
+    }
+
+    .open-button:hover {
+      transform: translateY(-3px);
+      background: #8f405d;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       text-align: center;
       padding: 30px;
-      background: linear-gradient(
-        135deg,
-        #fff7fa,
-        #f8d4e1,
-        #ffeef4
-      );
+
+      background:
+        radial-gradient(circle at 15% 15%, #ffffff, transparent 25%),
+        radial-gradient(circle at 85% 80%, #f6cbd9, transparent 30%),
+        linear-gradient(135deg, #fff8fa, #f9dfe7);
+
+      position: relative;
     }
 
     .hero-content {
-      max-width: 700px;
+      max-width: 850px;
+      animation: fadeUp 1.5s ease;
     }
 
     .small {
       color: #a64d6d;
       letter-spacing: 4px;
-      font-size: 12px;
-      margin-bottom: 25px;
+      font-size: 11px;
       text-transform: uppercase;
+      margin-bottom: 25px;
     }
 
-    h1 {
-      color: #a64d6d;
+    .hero h1 {
       font-family: Georgia, serif;
-      font-size: clamp(60px, 12vw, 120px);
-      line-height: 0.9;
+      color: #a64d6d;
+      font-size: clamp(70px, 14vw, 150px);
+      line-height: .82;
       font-weight: normal;
     }
 
     .subtitle {
       font-family: Georgia, serif;
-      font-size: 28px;
+      font-size: clamp(25px, 4vw, 38px);
       line-height: 1.4;
-      margin: 30px 0;
+      margin: 35px auto;
+      max-width: 700px;
     }
 
     .date {
       display: inline-block;
+
       padding: 12px 22px;
+
       border: 1px solid #c77a94;
       border-radius: 50px;
+
       color: #a64d6d;
+
       font-size: 12px;
       letter-spacing: 2px;
     }
+
+    .scroll {
+      position: absolute;
+      bottom: 25px;
+
+      font-size: 10px;
+      letter-spacing: 3px;
+
+      color: #966a78;
+
+      animation: bounce 2s infinite;
+    }
+
+
+    /* =========================
+       GENERAL
+    ========================= */
 
     section {
       padding: 90px 20px;
@@ -82,29 +199,51 @@
 
     .label {
       text-align: center;
+
       color: #a64d6d;
+
       text-transform: uppercase;
+
       letter-spacing: 3px;
+
       font-size: 11px;
+
       margin-bottom: 15px;
     }
 
     h2 {
       text-align: center;
+
       font-family: Georgia, serif;
+
       color: #613b49;
+
       font-size: clamp(40px, 7vw, 70px);
+
       font-weight: normal;
+
       margin-bottom: 35px;
     }
 
+
+    /* =========================
+       LETTER
+    ========================= */
+
     .letter {
       background: white;
+
       border-radius: 25px;
+
       padding: 45px;
-      box-shadow: 0 20px 60px rgba(100, 50, 70, 0.1);
+
+      box-shadow:
+        0 20px 60px rgba(100, 50, 70, .1);
+
       font-family: Georgia, serif;
+
       font-size: 21px;
+
       line-height: 1.8;
     }
 
@@ -114,36 +253,70 @@
 
     .signature {
       text-align: right;
+
       color: #a64d6d;
+
       font-size: 25px;
+
       font-style: italic;
+
       margin-top: 35px;
     }
 
+
+    /* =========================
+       GALLERY
+    ========================= */
+
     .gallery {
       display: grid;
+
       grid-template-columns: repeat(2, 1fr);
+
       gap: 15px;
     }
 
     .photo {
       width: 100%;
+
       aspect-ratio: 4 / 5;
+
       object-fit: cover;
+
       border-radius: 20px;
+
       background: #f5d2df;
+
+      box-shadow:
+        0 15px 40px rgba(100, 50, 70, .1);
+
+      transition: transform .5s ease;
     }
+
+    .photo:hover {
+      transform: scale(1.02);
+    }
+
+
+    /* =========================
+       REASONS
+    ========================= */
 
     .reasons {
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
+
       gap: 15px;
     }
 
     .reason {
       background: white;
+
       padding: 30px 20px;
+
       border-radius: 20px;
+
       text-align: center;
     }
 
@@ -153,83 +326,169 @@
 
     .reason h3 {
       font-family: Georgia, serif;
+
       color: #a64d6d;
+
       font-size: 27px;
+
       margin: 12px 0;
     }
 
     .reason p {
       font-size: 14px;
+
       line-height: 1.6;
+
       color: #725762;
     }
 
+
+    /* =========================
+       QUOTE
+    ========================= */
+
     .quote-section {
-      background: linear-gradient(
-        135deg,
-        #f3cad8,
-        #fff0f5
-      );
+      background:
+        linear-gradient(
+          135deg,
+          #f3cad8,
+          #fff0f5
+        );
+
       text-align: center;
     }
 
     .quote {
       max-width: 800px;
+
       margin: auto;
+
       font-family: Georgia, serif;
+
       font-size: clamp(35px, 6vw, 60px);
+
       line-height: 1.15;
+
       color: #91465f;
     }
+
+
+    /* =========================
+       SURPRISE
+    ========================= */
 
     .surprise {
       text-align: center;
     }
 
-    button {
+    .surprise-button {
       background: #a64d6d;
+
       color: white;
+
       border: none;
+
       border-radius: 50px;
-      padding: 16px 28px;
+
+      padding: 17px 30px;
+
       font-size: 14px;
+
       cursor: pointer;
-      box-shadow: 0 10px 30px rgba(166, 77, 109, 0.25);
+
+      box-shadow:
+        0 10px 30px rgba(166, 77, 109, .25);
+
+      transition: .3s;
     }
 
-    button:hover {
-      background: #8e3e5b;
+    .surprise-button:hover {
+      transform: translateY(-3px);
+
+      background: #8f405d;
     }
 
     #secret {
       display: none;
+
       margin: 35px auto 0;
+
       max-width: 700px;
+
       font-family: Georgia, serif;
+
       font-size: 25px;
+
       line-height: 1.7;
+
+      animation: fadeUp 1s ease;
     }
 
     #secret p {
       margin-bottom: 20px;
     }
 
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
       text-align: center;
-      padding: 40px 20px;
+
+      padding: 40px 20px 60px;
+
       color: #99717d;
+
       font-size: 12px;
     }
 
+
+    /* =========================
+       FLOATING HEART
+    ========================= */
+
     .heart {
       position: fixed;
+
       bottom: -30px;
+
       z-index: 999;
+
       pointer-events: none;
+
       animation: naik 4s linear forwards;
     }
 
+
+    /* =========================
+       ANIMATION
+    ========================= */
+
+    @keyframes fadeUp {
+
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    @keyframes bounce {
+
+      50% {
+        transform: translateY(8px);
+      }
+
+    }
+
     @keyframes naik {
+
       from {
         transform: translateY(0);
         opacity: 1;
@@ -239,12 +498,19 @@
         transform: translateY(-110vh);
         opacity: 0;
       }
+
     }
 
-    @media (max-width: 650px) {
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width: 650px) {
 
       .letter {
         padding: 28px;
+
         font-size: 19px;
       }
 
@@ -256,20 +522,82 @@
         grid-template-columns: 1fr;
       }
 
+      section {
+        padding: 75px 16px;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- HERO -->
 
-  <section class="hero">
+  <!-- ===================================
+       OPENING
+  ==================================== -->
+
+  <div id="opening">
+
+    <div class="opening-content">
+
+      <div class="opening-small">
+        A little surprise for you
+      </div>
+
+      <div class="opening-title">
+          Safira.
+      </div>
+
+      <div class="opening-text">
+        Gue bikin sesuatu kecil buat lo.
+        <br>
+        Jangan langsung di-scroll ya...
+      </div>
+
+      <button
+        class="open-button"
+        onclick="bukaWebsite()"
+      >
+        Buka untuk Baby 💌
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===================================
+       MUSIC
+
+       Upload lagu ke:
+
+       music/music.mp3
+
+  ==================================== -->
+
+  <audio id="music" loop>
+
+    <source
+      src="music/music.mp3"
+      type="audio/mpeg"
+    >
+
+  </audio>
+
+
+  <!-- ===================================
+       HERO
+  ==================================== -->
+
+  <header class="hero">
 
     <div class="hero-content">
 
       <div class="small">
-        A little surprise for you
+        A little letter for my favorite person
       </div>
 
       <h1>
@@ -290,10 +618,16 @@
 
     </div>
 
-  </section>
+    <div class="scroll">
+      SCROLL PERLAHAN ↓
+    </div>
+
+  </header>
 
 
-  <!-- SURAT -->
+  <!-- ===================================
+       LETTER
+  ==================================== -->
 
   <section>
 
@@ -343,16 +677,15 @@
         <p>
           Terima kasih sudah menjadi lo.
           Terima kasih untuk semua tawa,
-          cerita, perhatian kecil, dan semua
-          hal sederhana yang mungkin menurut
-          lo biasa saja, tapi diam-diam
+          cerita, perhatian kecil, bahkan
+          untuk hal-hal sederhana yang mungkin
+          menurut lo biasa saja, tapi diam-diam
           berarti banyak buat gue.
         </p>
 
         <p>
-          Di umur lo yang baru ini,
-          gue berharap lo selalu dikelilingi
-          hal-hal baik.
+          Di umur lo yang baru ini, gue berharap
+          lo selalu dikelilingi hal-hal baik.
         </p>
 
         <p>
@@ -363,9 +696,9 @@
         </p>
 
         <p>
-          Kalau suatu hari dunia terasa terlalu
-          berat, semoga lo ingat kalau lo
-          nggak harus menghadapi semuanya
+          Dan kalau suatu hari dunia terasa
+          terlalu berat, semoga lo ingat kalau
+          lo nggak harus menghadapi semuanya
           sendirian.
         </p>
 
@@ -405,7 +738,7 @@
 
         <div class="signature">
           With all my love,<br>
-          B ❤️
+          Gue ❤️
         </div>
 
       </div>
@@ -415,7 +748,9 @@
   </section>
 
 
-  <!-- FOTO -->
+  <!-- ===================================
+       FOTO KALIAN
+  ==================================== -->
 
   <section>
 
@@ -433,25 +768,25 @@
 
         <img
           class="photo"
-          src="6.jpeg"
+          src="images/foto1.jpg"
           alt="Foto kita 1"
         >
 
         <img
           class="photo"
-          src="7.jpeg"
+          src="images/foto2.jpg"
           alt="Foto kita 2"
         >
 
         <img
           class="photo"
-          src="8.jpeg"
+          src="images/foto3.jpg"
           alt="Foto kita 3"
         >
 
         <img
           class="photo"
-          src="9.jpeg"
+          src="images/foto4.jpg"
           alt="Foto kita 4"
         >
 
@@ -462,7 +797,9 @@
   </section>
 
 
-  <!-- ALASAN -->
+  <!-- ===================================
+       ALASAN
+  ==================================== -->
 
   <section>
 
@@ -523,11 +860,11 @@
           </div>
 
           <h3>
-            Lo
+            Diri lo
           </h3>
 
           <p>
-            GUe sayang lo bukan karena lo
+            Gue sayang lo bukan karena lo
             harus sempurna, tapi karena lo
             adalah lo.
           </p>
@@ -541,7 +878,9 @@
   </section>
 
 
-  <!-- QUOTE -->
+  <!-- ===================================
+       QUOTE
+  ==================================== -->
 
   <section class="quote-section">
 
@@ -554,14 +893,16 @@
       <br><br>
 
       “Bahkan di hari-hari ketika gue
-      tidak ada di samping lo.”
+      nggak ada di samping lo.”
 
     </div>
 
   </section>
 
 
-  <!-- KEJUTAN -->
+  <!-- ===================================
+       LAST SURPRISE
+  ==================================== -->
 
   <section class="surprise">
 
@@ -575,9 +916,13 @@
         Ada pesan terakhir.
       </h2>
 
-      <button onclick="bukaPesan()">
+      <button
+        class="surprise-button"
+        onclick="bukaPesan()"
+      >
         Buka pesannya 💌
       </button>
+
 
       <div id="secret">
 
@@ -602,8 +947,16 @@
         </p>
 
         <p>
+          Terima kasih sudah menjadi bagian
+          dari cerita gue.
+        </p>
+
+        <p>
           Selamat ulang tahun, Baby.
-          I love you. ❤️
+        </p>
+
+        <p>
+          Gue sayang banget sama lo. ❤️
         </p>
 
       </div>
@@ -613,21 +966,93 @@
   </section>
 
 
+  <!-- ===================================
+       FOOTER
+  ==================================== -->
+
   <footer>
+
     Made with love, specifically for Safira. ♡
+
   </footer>
 
 
+  <!-- ===================================
+       JAVASCRIPT
+  ==================================== -->
+
   <script>
+
+    function bukaWebsite() {
+
+      const opening =
+        document.getElementById("opening");
+
+      opening.classList.add("hide");
+
+
+      /*
+        MULAI MUSIK
+      */
+
+      const music =
+        document.getElementById("music");
+
+      music.volume = 0.35;
+
+      music.play().catch(function(error) {
+
+        console.log(
+          "Browser tidak mengizinkan autoplay:",
+          error
+        );
+
+      });
+
+
+      /*
+        EFEK HATI
+      */
+
+      buatHati(20);
+
+    }
+
 
     function bukaPesan() {
 
-      const pesan =
+      const secret =
         document.getElementById("secret");
 
-      pesan.style.display = "block";
+      secret.style.display = "block";
 
-      for (let i = 0; i < 35; i++) {
+
+      /*
+        BANYAK HATI
+      */
+
+      buatHati(40);
+
+
+      /*
+        SCROLL KE PESAN
+      */
+
+      setTimeout(function() {
+
+        secret.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+      }, 300);
+
+    }
+
+
+    function buatHati(jumlah) {
+
+      for (let i = 0; i < jumlah; i++) {
 
         setTimeout(function() {
 
@@ -642,7 +1067,14 @@
             Math.random() * 100 + "vw";
 
           heart.style.color =
-            "#a64d6d";
+            [
+              "#a64d6d",
+              "#e98ba8",
+              "#f2b7ca",
+              "#d66f91"
+            ][
+              Math.floor(Math.random() * 4)
+            ];
 
           heart.style.fontSize =
             (15 + Math.random() * 25) + "px";
@@ -650,20 +1082,19 @@
           heart.style.animationDuration =
             (3 + Math.random() * 3) + "s";
 
+
           document.body.appendChild(heart);
 
-          setTimeout(function() {
-            heart.remove();
-          }, 6000);
 
-        }, i * 80);
+          setTimeout(function() {
+
+            heart.remove();
+
+          }, 6500);
+
+        }, i * 70);
 
       }
-
-      pesan.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
 
     }
 
